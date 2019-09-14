@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Класс, который запускает приложение.
  */
 @SpringBootApplication
-public class SelfemployedApplication {
+public class SelfEmployedApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SelfemployedApplication.class, args);
+        SpringApplication.run(SelfEmployedApplication.class, args);
     }
 
 }

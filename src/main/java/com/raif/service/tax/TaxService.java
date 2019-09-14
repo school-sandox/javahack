@@ -15,10 +15,6 @@ public class TaxService {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public static void main(String[] args) {
-        new TaxService().checkStatus(new SelfEmployedStatusReq("772323358792", "2019-01-11"));
-    }
-
 
     /**
      * Проверяет, зарегистрирован ли пользователь в налоговой системе в качестве самозанятого.
