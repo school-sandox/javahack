@@ -6,8 +6,25 @@ package com.raif.service.tax;
 public class SelfEmployedStatusRes {
 
     /** True, если пользователь зарегистрирован в налоговой системе, как самозанятый. */
-    boolean status;
+    private Boolean status;
 
     /** Информативное сообщение. */
-    String message;
+    private String message;
+
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

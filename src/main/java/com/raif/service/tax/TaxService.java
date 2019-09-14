@@ -15,14 +15,10 @@ public class TaxService {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-
     public static void main(String[] args) {
-        TaxService service = new TaxService();
-        String inn = "525741209968";
-        String requestDate = "2019-01-11";
-        SelfEmployedStatusReq req = new SelfEmployedStatusReq(inn, requestDate);
-        System.out.println(service.checkStatus(req));
+        new TaxService().checkStatus(new SelfEmployedStatusReq("772323358792", "2019-01-11"));
     }
+
 
     /**
      * Проверяет, зарегистрирован ли пользователь в налоговой системе в качестве самозанятого.
