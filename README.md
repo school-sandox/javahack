@@ -1,6 +1,6 @@
 # javahack
 
-vk.com/rakhall
+https://vk.com/rakhall
 
 https://vk.com/litovchenko_aleksey
 
