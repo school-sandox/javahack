@@ -25,7 +25,7 @@ public class TaxService {
 
         if (request.getInn().length() != 12 || !isValid(request.getRequestDate())) {
             SelfEmployedStatusRes res = new SelfEmployedStatusRes();
-            res.setMessage("неверный формат");
+            res.setMessage("Неверный формат данных");
             return res;
         }
 
@@ -35,7 +35,7 @@ public class TaxService {
     }
 
 
-    private boolean isValid(String date) {
+    private static boolean isValid(String date) {
         String[] partsData = date.split("-");
         if (partsData.length != 3)
             return false;
