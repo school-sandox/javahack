@@ -27,4 +27,9 @@ public class SelfEmployedStatusRes {
     public String getMessage() {
         return message;
     }
+
+    @Override
+    public String toString() {
+        return "Status: " + this.status + "\nMessage: " + this.message;
+    }
 }
