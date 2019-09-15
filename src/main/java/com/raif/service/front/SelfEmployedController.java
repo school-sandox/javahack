@@ -19,13 +19,26 @@ public class SelfEmployedController {
     private TaxService taxService;
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public Boolean saveData(@RequestParam(value = "inn") String inn) {
-        System.out.println(inn);
-//        System.out.println(userInfo.getInn());
-        SelfEmployedStatusReq request = new SelfEmployedStatusReq(inn, "2019-01-11");
-        System.out.println(new Date().toString());
+    public Boolean saveData(@RequestParam(value = "inn") String inn,
+                            @RequestParam(value = "data") String data) {
+        if (inn.length() != 12 || checkData(data))
+            return false; //неверный формат
+        SelfEmployedStatusReq request = new SelfEmployedStatusReq(inn, data);
         SelfEmployedStatusRes response = taxService.checkStatus(request);
         System.out.println(response.getMessage());
         return response.getStatus();
+    }
+
+    private Boolean checkData(String data) {
+        String[] partsData = data.split("-");
+        if (partsData.length != 3)
+            return false;
+        if (partsData[0].length() != 4)
+            return false;
+        if (partsData[1].length() != 2)
+            return false;
+        if (partsData[2].length() != 2)
+            return false;
+        return true;
     }
 }
