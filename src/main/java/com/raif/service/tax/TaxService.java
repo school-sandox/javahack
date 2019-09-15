@@ -22,8 +22,29 @@ public class TaxService {
      * @return Подробный статус.
      */
     public SelfEmployedStatusRes checkStatus(SelfEmployedStatusReq request) {
+
+        if (request.getInn().length() != 12 || !isValid(request.getRequestDate())) {
+            SelfEmployedStatusRes res = new SelfEmployedStatusRes();
+            res.setMessage("неверный формат");
+            return res;
+        }
+
         String fullUrl = URL + CHECK_STATUS_URL;
         ResponseEntity<SelfEmployedStatusRes> response = restTemplate.postForEntity(fullUrl, request, SelfEmployedStatusRes.class);
         return response.getBody();
+    }
+
+
+    private boolean isValid(String date) {
+        String[] partsData = date.split("-");
+        if (partsData.length != 3)
+            return false;
+        if (partsData[0].length() != 4)
+            return false;
+        if (partsData[1].length() != 2)
+            return false;
+        if (partsData[2].length() != 2)
+            return false;
+        return true;
     }
 }
