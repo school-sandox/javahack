@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.*;
 public class SelfEmployedController {
 
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
-    public Boolean saveData(@PathVariable Integer id,
-                            @RequestBody UserInfo userInfo) {
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public Boolean saveData(@RequestParam(value = "inn") Integer id) {
         System.out.println("URA, RABOTAET NAHOOI!");
         System.out.println(id);
-        System.out.println(userInfo.getInn());
+//        System.out.println(userInfo.getInn());
         return true;
     }
 }
